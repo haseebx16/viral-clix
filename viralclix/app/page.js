@@ -7,6 +7,9 @@ export default function Home() {
        <section>
         <Nav/>
       </section>
+      <section>
+        <Hero/>
+      </section>
     </>
   );
 }

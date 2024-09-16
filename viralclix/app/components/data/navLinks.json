@@ -1,14 +1,22 @@
 [
     {
-        "label": "Home"
+        "label": "Home",
+        "href": "/"
     },
     {
-        "label": "Gallery"
+        "label": "Gallery",
+        "href": "/gallery"
     },
     {
-        "label": "Services"
+        "label": "Services",
+        "href": "/services"
     },
     {
-        "label": "Contact"
+        "label": "About",
+        "href": "/about"
+    },
+    {
+        "label": "Contact",
+        "href": "/contact"
     }
 ]

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import navLinks from "./data/navLinks";
 import { font2 } from "./font/poppins";
+import Link from "next/link";
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false); // State to control the mobile menu
@@ -53,7 +54,7 @@ const Nav = () => {
                 key={item.label}
                 className="block py-2 sm:py-0 cursor-pointer"
               >
-                {item.label}
+                <Link href={item.href}>{item.label}</Link>
               </span>
             ))}
           </div>
