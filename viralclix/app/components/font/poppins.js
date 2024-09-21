@@ -1,6 +1,6 @@
-import { Poppins } from "next/font/google";
+import { Rowdies } from "next/font/google";
 
-export const font2 = Poppins({
+export const font2 = Rowdies({
     subsets: ['latin'],
     weight: '400'
 })

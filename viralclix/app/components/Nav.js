@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import navLinks from "./data/navLinks";
 import { font2 } from "./font/poppins";
 import Link from "next/link";
+import { font } from "./font/titan";
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false); // State to control the mobile menu
@@ -15,7 +16,7 @@ const Nav = () => {
   return (
     <div className="flex sticky justify-center text-white items-center flex-wrap bg-green-100">
       <header
-        className={`${font2.className} w-full bg-zinc-800 backdrop-blur-lg top-0 flex-wrap p-3 bg-opacity-100 text-gray-200`}
+        className={`${font2.className} w-full bg-green-900 backdrop-blur-lg top-0 flex-wrap p-3 bg-opacity-100 text-gray-200`}
       >
         <nav className="flex items-center justify-between px-8">
           {/* Logo on the left */}
@@ -43,7 +44,7 @@ const Nav = () => {
             </button>
           </div>
 
-          {/* Navbar Links */}
+          {/* Navbar Links and Call Button */}
           <div
             className={`${
               isOpen ? "flex" : "hidden"
@@ -57,8 +58,12 @@ const Nav = () => {
                 <Link href={item.href}>{item.label}</Link>
               </span>
             ))}
+
+            {/* Get A Call Button */}
+            <button className="bg-green-600 text-white p-2 px-4 rounded-full mt-2 sm:mt-0">
+              Get A Call
+            </button>
           </div>
-            <button className="bg-green-600 text-white p-2 px-4 flex flex-nowrap sm:block rounded-full">Get A Call</button>
         </nav>
       </header>
     </div>
