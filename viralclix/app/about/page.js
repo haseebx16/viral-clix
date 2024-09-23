@@ -3,7 +3,7 @@ import Nav from '../components/Nav'
 
 const page = () => {
   return (
-    <div>
+    <div className=''>
         <Nav/>
     </div>
   )

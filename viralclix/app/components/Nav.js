@@ -14,9 +14,9 @@ const Nav = () => {
   };
 
   return (
-    <div className="flex sticky justify-center text-white items-center flex-wrap bg-green-100">
+    <div className="flex justify-center mb-12 text-white items-center flex-wrap bg-green-100">
       <header
-        className={`${font2.className} w-full bg-green-900 backdrop-blur-lg top-0 flex-wrap p-3 bg-opacity-100 text-gray-200`}
+        className={`${font2.className} w-full fixed shadow-md shadow-black bg-green-900 backdrop-blur-lg top-0 flex-wrap p-3 bg-opacity-100 text-gray-200`}
       >
         <nav className="flex items-center justify-between px-8">
           {/* Logo on the left */}
