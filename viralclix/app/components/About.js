@@ -35,21 +35,7 @@ const About = () => {
         </p>
       </div>
 
-      <div className='mt-12 flex-col flex justify-center items-center'>
-        <p className={`${font.className} text-5xl sm:text-6xl text-center sm:text-left sm:ml-12 text-green-300`}>
-          Customised <br />
-          <span className='text-white'>Art On Orders</span>
-        </p>
-        <div className='text-center text-white max-w-md sm:max-w-4xl mx-auto mt-4'>
-          <p>Explore our range of custom artwork services including Furry Art, Anime Art, Custom OC's & Much More !</p>
-        </div>
-        <div className='flex-col flex justify-center items-center mt-12'>
-          <p className={`${font.className} text-yellow-300 text-xl`}>2D and 3D Animation</p>
-          <div className='text-center text-white max-w-md sm:max-w-sm mx-auto'>
-            <p>We specialize in creating 2D and 3D avatars and VTubing models for virtual presence.</p>
-          </div>
-        </div>
-      </div>
+      
     </div>
   )
 }
