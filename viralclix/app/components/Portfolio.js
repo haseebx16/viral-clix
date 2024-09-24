@@ -13,7 +13,7 @@ const Portfolio = () => {
         backgroundRepeat: 'no-repeat', // Prevents repeating the GIF
       }}
     >
-      <div className='flex-col flex justify-center items-center'>
+      <div className='flex-col flex justify-center items-center p-12'>
         <p className={`${font.className} text-5xl sm:text-6xl text-center sm:text-left sm:ml-12 text-green-300`}>
           Port<span className='text-white'>folio</span>
         </p>
@@ -28,7 +28,7 @@ const Portfolio = () => {
         </div>
       </div>
       <div className='flex-col mt-16 flex justify-center items-center'>
-        <p className={`${font.className} text-5xl sm:text-6xl text-center sm:text-left sm:ml-12 text-green-300`}>
+        <p className={`${font.className} text-5xl sm:text-6xl text-center sm:text-left  text-green-300`}>
           2D<span className='text-white'>&nbsp;Art</span>
         </p>
         <div className='text-center text-white max-w-md sm:max-w-sm mx-auto'>
