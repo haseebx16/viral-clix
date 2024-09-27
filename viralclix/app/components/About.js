@@ -5,13 +5,8 @@ import { font } from './font/titan'
 const About = () => {
   return (
     <div
-      className={`${font2.className} min-h-screen`}
-      style={{
-        backgroundImage: 'url("/about.gif")', // Reference the GIF in the public folder
-        backgroundSize: 'cover', // Makes sure the background covers the entire area
-        backgroundPosition: 'center', // Centers the background
-        backgroundRepeat: 'no-repeat', // Prevents repeating the GIF
-      }}
+      className={`${font2.className} min-h-screen bg-slate-800`}
+      
     >
       <div className='flex-col flex sm:flex sm:flex-row sm:justify-between justify-center items-center'>
         <p className={`${font.className} text-green-300 text-5xl sm:text-7xl sm:ml-12 mt-12`}>
@@ -35,7 +30,7 @@ const About = () => {
         </p>
       </div>
       <div className='flex flex-col justify-center sm:flex sm:flex-row sm:space-x-6 sm:space-y-0 items-center space-y-6 rounded-md mt-12'>
-          <img src='/arts/1.jpg' className='w-80 h-80 rounded-lg '/>
+          <img src='/overlay-yellow.jpg' className='w-auto border-white border-2 h-80 rounded-lg '/>
           <img src='/arts/2.jpg' className='w-80 h-80 rounded-lg '/>
           <img src='/arts/3.jpg' className='w-80 h-80 rounded-lg '/>
       </div>     

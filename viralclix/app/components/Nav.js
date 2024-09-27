@@ -7,7 +7,7 @@ import Link from "next/link";
 import { font } from "./font/titan";
 
 const Nav = () => {
-  const [isOpen, setIsOpen] = useState(false); // State to control the mobile menu
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
