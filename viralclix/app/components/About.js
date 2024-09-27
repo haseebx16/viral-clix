@@ -34,8 +34,11 @@ const About = () => {
           400+ <p className={`${font2.className} text-white text-sm w-32 whitespace-nowrap`}>Projects Completed</p>
         </p>
       </div>
-
-      
+      <div className='flex flex-col justify-center sm:flex sm:flex-row sm:space-x-6 sm:space-y-0 items-center space-y-6 rounded-md mt-12'>
+          <img src='/arts/1.jpg' className='w-80 h-80 rounded-lg '/>
+          <img src='/arts/2.jpg' className='w-80 h-80 rounded-lg '/>
+          <img src='/arts/3.jpg' className='w-80 h-80 rounded-lg '/>
+      </div>     
     </div>
   )
 }
