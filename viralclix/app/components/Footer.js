@@ -9,8 +9,8 @@ const Footer = () => {
   return (
     <div className={`${font.className} bg-black flex items-center justify-center flex-col`}>
       <div className='flex-col flex sm:w-full sm:flex sm:flex-row sm:justify-between justify-center items-center'>
-        <p className={`${font.className} text-green-300 text-4xl sm:text-6xl sm:ml-12 mt-12`}>
-          Viral<span className='text-white sm:text-6xl text-4xl'>Clix</span>  
+        <p className={`${font.className} text-green-300 text-4xl sm:text-4xl sm:ml-12 mt-12`}>
+          Viral<span className='text-white sm:text-4xl text-4xl'>Clix</span>  
         </p>
         <div className={`${font2.className} text-center text-xs text-white max-w-md mx-auto mt-4`}>
           <p>
