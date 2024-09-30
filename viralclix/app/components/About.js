@@ -29,10 +29,10 @@ const About = () => {
           400+ <p className={`${font2.className} text-white text-sm w-32 whitespace-nowrap`}>Projects Completed</p>
         </p>
       </div>
-      <div className='flex flex-col justify-center sm:flex sm:flex-row sm:space-x-6 sm:space-y-0 items-center space-y-6 rounded-md mt-12'>
-          <img src='/overlay-yellow.jpg' className='w-auto border-white border-2 h-80 rounded-lg '/>
-          <img src='/arts/2.jpg' className='w-80 h-80 rounded-lg '/>
-          <img src='/arts/3.jpg' className='w-80 h-80 rounded-lg '/>
+      <div className='flex flex-col justify-center sm:flex pb-12 sm:flex-row sm:space-x-6 sm:space-y-0 items-center space-y-6 rounded-md mt-12'>
+          <img src='/3d-1.jpeg' className='w-auto h-80 rounded-lg shadow-lg  hover:h-96 duration-300 shadow-green-200 '/>
+          <img src='/3d-2.jpeg' className='w-auto h-80 rounded-lg shadow-lg hover:h-96 duration-300 shadow-green-200'/>
+          <img src='/3d-3.jpeg' className='w-auto h-80 rounded-lg shadow-lg hover:h-96 duration-300 shadow-green-200'/>
       </div>     
     </div>
   )
