@@ -5,7 +5,12 @@ import { font } from './font/titan'
 const About = () => {
   return (
     <div
-      className={`${font2.className} min-h-screen bg-slate-800`}
+      className={`${font2.className} min-h-screen`} style={{
+        backgroundImage: 'url("/stars.gif")', // Reference the GIF in the public folder
+        backgroundSize: 'cover', // Makes sure the background covers the entire area
+        backgroundPosition: 'center', // Centers the background
+        backgroundRepeat: 'no-repeat', // Prevents repeating the GIF
+      }}
       
     >
       <div className='flex-col flex sm:flex sm:flex-row sm:justify-between justify-center items-center'>
