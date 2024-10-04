@@ -5,3 +5,7 @@
 .body {
     background-image: url("/bg-gif.gif");
 }
+
+.two-d-gradient {
+    background: linear-gradient(to bottom, #000000, #109166);
+}
