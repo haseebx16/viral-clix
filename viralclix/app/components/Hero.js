@@ -20,7 +20,7 @@ const Hero = () => {
 
   return (
     <div
-      className={`${font2.className} min-h-[25rem] p-24 flex items-center bg-darkGrey justify-center flex-col`}
+      className={`${font2.className} min-h-[25rem] p-12 md:p-24 flex items-center bg-darkGrey justify-center flex-col`}
     >
       <div className="pb-24 w-full">
         <motion.div
