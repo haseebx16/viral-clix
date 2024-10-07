@@ -9,3 +9,9 @@
 .two-d-gradient {
     background: linear-gradient(to bottom, #000000, #109166);
 }
+
+.gradient-bg {
+    background: linear-gradient(to left, #48ec9f, #109166);
+    
+    width: 100%;
+}

@@ -9,7 +9,13 @@
     },
     {
         "label": "Services",
-        "href": "/services"
+        "href": "/services",
+        "children": [
+            { "label": "2D Art", "href": "/services/2d" },
+            { "label": "3D Art", "href": "/services/3d" },
+            { "label": "Banners", "href": "/services/banners" },
+            { "label": "Overlays", "href": "/services/overlays" }
+        ]
     },
     {
         "label": "About",

@@ -14,11 +14,11 @@ const About = () => {
       
     >
       <div className='flex-col flex sm:flex sm:flex-row sm:justify-between justify-center items-center'>
-        <p className={`${font.className} text-green-300 text-5xl sm:text-7xl sm:ml-12 mt-12`}>
+        <p className={`${font.className} text-green-300 text-4xl sm:text-6xl sm:ml-12 mt-12`}>
           Your One Stop{' '}
-          <p className='text-yellow-300 sm:text-7xl text-5xl'>Artist's Web</p>
+          <p className='text-yellow-300 sm:text-6xl text-4xl'>Artist's Web</p>
         </p>
-        <div className='text-center text-white max-w-md mx-auto mt-4'>
+        <div className='text-center text-white max-w-72 md:max-w-md mx-auto mt-4'>
           <p>
             Welcome to ViralClix, where we bring your creative visions to life with custom designed
             artworks including furry art, 2D OC art, anime art, and more.
@@ -35,9 +35,9 @@ const About = () => {
         </p>
       </div>
       <div className='flex flex-col justify-center sm:flex pb-12 sm:flex-row sm:space-x-6 sm:space-y-0 items-center space-y-6 rounded-md mt-12'>
-          <img src='/3d-1.jpeg' className='w-auto h-80 rounded-lg shadow-lg  hover:h-96 duration-300 shadow-green-200 '/>
-          <img src='/3d-2.jpeg' className='w-auto h-80 rounded-lg shadow-lg hover:h-96 duration-300 shadow-green-200'/>
-          <img src='/3d-3.jpeg' className='w-auto h-80 rounded-lg shadow-lg hover:h-96 duration-300 shadow-green-200'/>
+          {/* <img src='/3d-1.jpeg' className='w-auto h-80 rounded-lg shadow-lg  md:hover:h-96 duration-300 shadow-green-200 '/> */}
+          {/* <img src='/3d-2.jpeg' className='w-auto h-80 rounded-lg shadow-lg md:hover:h-96 duration-300 shadow-green-200'/> */}
+          {/* <img src='/3d-3.jpeg' className='w-auto h-80 rounded-lg shadow-lg md:hover:h-96 duration-300 shadow-green-200'/> */}
       </div>     
     </div>
   )

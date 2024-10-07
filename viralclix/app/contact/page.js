@@ -4,11 +4,13 @@ import { font } from '../components/font/titan';
 import { font2 } from '../components/font/poppins';
 import { font3 } from '../components/font/poppin';
 import { FaLocationDot } from "react-icons/fa6";
+import Footer from '../components/Footer';
 import { MdEmail } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 
 const ContactPage = () => {
   return (
+    <>
     <div className={`min-h-screen p-12`} style={{
       backgroundImage: 'url("/stars.gif")',
       backgroundSize: 'cover',
@@ -51,6 +53,8 @@ const ContactPage = () => {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 
