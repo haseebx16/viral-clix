@@ -6,25 +6,25 @@ import { font2 } from './font/poppins';
 
 const Footer = () => {
   return (
-    <div className="bg-black text-white py-8">
+    <div className="bg-darkGrey text-white py-8">
       <div className="container mx-auto flex flex-col sm:flex-row justify-between items-start px-4 sm:px-12">
 
         <div className="sm:w-1/3 text-center sm:text-left">
-          <p className={`${font.className} text-green-300 text-5xl mb-2`}>Viral<span className="text-white">Clix</span></p>
+          <p className={`${font.className} text-green-400 text-5xl mb-2`}>Viral<span className="text-white">Clix</span></p>
           <p className={`${font2.className} text-sm text-white leading-relaxed`}>
             Furry Art, Reference Sheets, 2D 3D VR Avatars, 2D Vtuber and PNGtuber, Gaming Logo Banners, 
             Emotes and Overlay, Animated Screens.
           </p>
           
           <div className="flex justify-center sm:justify-start space-x-4 mt-4">
-            <FaFacebook className="text-green-300 text-2xl" />
-            <AiFillInstagram className="text-green-300 text-2xl" />
-            <FaTwitter className="text-green-300 text-2xl" />
+            <FaFacebook className="text-green-400 text-2xl" />
+            <AiFillInstagram className="text-green-400 text-2xl" />
+            <FaTwitter className="text-green-400 text-2xl" />
           </div>
         </div>
 
         <div className="sm:w-1/3 mt-8 sm:mt-0 text-center sm:text-left flex flex-col justify-center items-center w-full">
-          <p className={`${font.className} text-green-300 text-lg mb-2`}>Contact</p>
+          <p className={`${font.className} text-green-400 text-lg mb-2`}>Contact</p>
           <p className={`${font2.className} text-white text-sm`}>info@viralclix.com</p>
         </div>
 

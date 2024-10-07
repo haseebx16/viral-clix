@@ -6,13 +6,8 @@ import Link from 'next/link';
 const Portfolio = () => {
   return (
     <div
-      className={`${font2.className} min-h-screen pt-12`}
-      style={{
-        backgroundImage: 'url("/stars.gif")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-      }}
+      className={`${font2.className} min-h-screen pt-12 bg-darkGrey`}
+      
     >
       <div className='flex-col flex justify-center items-center p-12'>
         <p className={`${font.className} text-5xl sm:text-6xl text-center sm:text-left sm:ml-12 text-green-300`}>
