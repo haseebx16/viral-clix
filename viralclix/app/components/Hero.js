@@ -130,10 +130,10 @@ const Hero = () => {
           <motion.div
             initial={{ x: '100vw' }} // Start off-screen on the right
             animate={{
-              x: ['100vw', '0vw', '-100vw'], // Slide from right to left and exit to left
+              x: ['100vw', '0vw', '-50vw'], // Slide from right to left and exit to left
             }}
             transition={{
-              duration: 10, // Adjust this value for speed
+              duration: 5, // Adjust this value for speed
               ease: 'linear', // Use linear easing for constant speed
               repeat: Infinity, // Repeat indefinitely
               repeatType: 'loop', // Specify that it should loop
