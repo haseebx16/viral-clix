@@ -13,6 +13,10 @@ const Portfolio = () => {
   const [isVisibleOverlays, setIsVisibleOverlays] = useState(false);
   const [isVisibleBanners, setIsVisibleBanners] = useState(false);
 
+  // State for the modal functionality
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+
   // Effect to check for scroll position for each section
   useEffect(() => {
     const handleScroll = () => {
@@ -25,11 +29,15 @@ const Portfolio = () => {
 
       sections.forEach(({ id, setVisible }) => {
         const section = document.getElementById(id);
-        const { top } = section.getBoundingClientRect();
-        if (top < window.innerHeight * 0.8) {
-          setVisible(true);
-        } else {
-          setVisible(false);
+
+        // Add null check to prevent errors
+        if (section) {
+          const { top } = section.getBoundingClientRect();
+          if (top < window.innerHeight * 0.8) {
+            setVisible(true);
+          } else {
+            setVisible(false);
+          }
         }
       });
     };
@@ -46,8 +54,37 @@ const Portfolio = () => {
     visible: { opacity: 1, x: 0, scale: 1.05 }, // End position in view
   };
 
+  // Open the modal with the selected image
+  const handleImageClick = (src) => {
+    setSelectedImage(src);
+    setIsModalOpen(true);
+  };
+
+  // Close the modal
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedImage(null);
+  };
+
   return (
     <div id="portfolio" className={`${font2.className} min-h-screen pt-12 md:pt-24 bg-darkGrey`}>
+      {/* Modal for fullscreen image */}
+      {isModalOpen && (
+        <div
+          className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-90 flex justify-center items-center z-50"
+          onClick={handleCloseModal} // Close modal on background click
+        >
+          <img src={selectedImage} className="max-w-full max-h-full" alt="Selected Art" />
+          <button
+            onClick={handleCloseModal}
+            className="absolute top-4 right-4 text-white text-3xl font-bold"
+          >
+            &times; {/* Close icon */}
+          </button>
+        </div>
+      )}
+
+      {/* Portfolio Header */}
       <div className='flex-col flex justify-center items-center p-12'>
         <p className={`${font.className} text-5xl sm:text-6xl text-center sm:text-left sm:ml-12 text-green-300`}>
           Portfolio
@@ -68,42 +105,23 @@ const Portfolio = () => {
       </div>
 
       {/* 2D Art Images */}
-      <div className='flex flex-wrap space-x-4 justify-center mt-12'>
+      <div className='flex flex-wrap justify-center mt-12 space-x-4'>
         {['/2d-1.jpeg', '/2d-art-4.png', '/2d-art-5.jpg'].map((src, index) => (
           <motion.div
-            key={index}
-            className='flex flex-col items-center mx-2 mb-4 sm:mb-6'
-            initial="hidden"
-            animate={isVisible2D ? "visible" : "hidden"}
-            variants={imageVariants}
-            transition={{ duration: 0.8, ease: "easeInOut" }} // Longer duration for the animation
-          >
-            <Link href="/services/2d">
-              <img
-                src={src}
-                className='w-full h-80 md:hover:h-96 duration-300 rounded-lg shadow-customGreen-light shadow-lg'
-              />
-            </Link>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Additional 2D Art Item */}
-      <div className='flex flex-col justify-center sm:flex sm:flex-row sm:space-x-6 sm:space-y-0 items-center space-y-6 rounded-md mt-12'>
-        <motion.div
-          className='flex flex-col justify-center'
-          initial="hidden"
-          animate={isVisible2D ? "visible" : "hidden"}
-          variants={imageVariants}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
+          key={index}
+          className='flex flex-col items-center mx-2 mb-4 sm:mb-6'
+          initial={{ opacity: 0, x: -50 }} // Adjust initial styles for layout
+          animate={isVisible2D ? { opacity: 1, x: 0, scale: 1.05 } : { opacity: 0, x: -50 }} // Handle visibility
+          transition={{ duration: 0.8, ease: "easeInOut" }} 
+          onClick={() => handleImageClick(src)} // Open modal on image click
         >
-          <Link href="/services/2d">
-            <img
-              src='/dragon-2d.png'
-              className='md:w-auto w-80 h-80 md:hover:h-96 duration-300 shadow-customGreen-light shadow-lg rounded-lg mb-12'
-            />
-          </Link>
+          <img
+            src={src}
+            className='w-full h-80 md:hover:h-96 duration-300 rounded-lg shadow-customGreen-light shadow-lg cursor-pointer'
+            alt="2D Art"
+          />
         </motion.div>
+        ))}
       </div>
 
       {/* 3D Art Section */}
@@ -117,7 +135,7 @@ const Portfolio = () => {
       </div>
 
       {/* 3D Art Images */}
-      <div className='flex flex-wrap justify-center mt-12'>
+      <div className='flex flex-wrap justify-center mt-12 space-x-4'>
         {['/3d-1.jpeg', '/3d-2.jpeg', '/3d-3.jpeg'].map((src, index) => (
           <motion.div
             key={index}
@@ -125,35 +143,14 @@ const Portfolio = () => {
             initial="hidden"
             animate={isVisible3D ? "visible" : "hidden"}
             variants={imageVariants}
-            transition={{ duration: 0.8, ease: "easeInOut" }} // Longer duration for the animation
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            onClick={() => handleImageClick(src)} // Open modal on image click
           >
-            <Link href="/services/3d">
-              <img
-                src={src}
-                className='md:w-full w-64 h-80 md:hover:h-96 duration-300 rounded-lg shadow-customGreen-light shadow-lg'
-              />
-            </Link>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Additional 3D Art Items */}
-      <div className='flex flex-wrap justify-center mt-6 space-x-6'>
-        {['/3d-5.png', '/3d-6.png'].map((src, index) => (
-          <motion.div
-            key={index}
-            className='flex flex-col justify-center sm:flex sm:flex-row sm:space-x-6 sm:space-y-0 items-center space-y-6 rounded-md mt-12'
-            initial="hidden"
-            animate={isVisible3D ? "visible" : "hidden"}
-            variants={imageVariants}
-            transition={{ duration: 0.8, ease: "easeInOut" }} // Longer duration for the animation
-          >
-            <Link href="/services/3d">
-              <img
-                src={src}
-                className='md:w-auto w-64 h-80 md:hover:h-96 bg-black duration-300 shadow-customGreen-light shadow-lg rounded-lg mb-12'
-              />
-            </Link>
+            <img
+              src={src}
+              className='md:w-full w-64 h-80 md:hover:h-96 duration-300 rounded-lg shadow-customGreen-light shadow-lg cursor-pointer'
+              alt="3D Art"
+            />
           </motion.div>
         ))}
       </div>
@@ -169,7 +166,7 @@ const Portfolio = () => {
       </div>
 
       {/* Overlay Images */}
-      <div className='flex flex-wrap justify-center mt-12 sm:space-y-6 md:space-y-0'>
+      <div className='flex flex-wrap justify-center mt-12 space-x-4'>
         {['/overlay-yellow.jpg', '/overlay.jpeg'].map((src, index) => (
           <motion.div
             key={index}
@@ -177,14 +174,14 @@ const Portfolio = () => {
             initial="hidden"
             animate={isVisibleOverlays ? "visible" : "hidden"}
             variants={imageVariants}
-            transition={{ duration: 0.8, ease: "easeInOut" }} // Longer duration for the animation
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            onClick={() => handleImageClick(src)} // Open modal on image click
           >
-            <Link href="/services/overlays">
-              <img
-                src={src}
-                className='w-72 h-64 md:w-full md:h-80 md:hover:h-72 duration-300 rounded-lg shadow-customGreen-light shadow-lg'
-              />
-            </Link>
+            <img
+              src={src}
+              className='w-72 h-64 md:w-full md:h-80 md:hover:h-72 duration-300 rounded-lg shadow-customGreen-light shadow-lg cursor-pointer'
+              alt="Overlay Art"
+            />
           </motion.div>
         ))}
       </div>
@@ -200,24 +197,27 @@ const Portfolio = () => {
       </div>
 
       {/* Banner Images */}
-      <div className='flex flex-wrap justify-center mt-12 sm:space-y-6 md:space-y-0'>
-        <motion.div
-          className='flex flex-col items-center mx-2 mb-4 sm:mb-6'
-          initial="hidden"
-          animate={isVisibleBanners ? "visible" : "hidden"}
-          variants={imageVariants}
-          transition={{ duration: 0.8, ease: "easeInOut" }} // Longer duration for the animation
-        >
-          <Link href="/services/banners">
+      <div className='flex flex-wrap justify-center mt-12 space-x-4'>
+        {['/banner-1.jpeg'].map((src, index) => (
+          <motion.div
+            key={index}
+            className='flex flex-col items-center mx-2 mb-4 sm:mb-6'
+            initial="hidden"
+            animate={isVisibleBanners ? "visible" : "hidden"}
+            variants={imageVariants}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            onClick={() => handleImageClick(src)} // Open modal on image click
+          >
             <img
-              src='/banner-1.jpeg'
-              className='md:w-full md:h-80 w-72 h-54 md:hover:h-72 duration-300 rounded-lg shadow-customGreen-light shadow-lg'
+              src={src}
+              className='w-full h-64 md:h-80 md:hover:h-96 duration-300 rounded-lg shadow-customGreen-light shadow-lg cursor-pointer'
+              alt="Banner Art"
             />
-          </Link>
-        </motion.div>
+          </motion.div>
+        ))}
       </div>
     </div>
   );
-}
+};
 
 export default Portfolio;

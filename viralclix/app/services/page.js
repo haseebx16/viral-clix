@@ -75,7 +75,7 @@ const page = () => {
       {/* 2D Art Images */}
       <div className='flex flex-wrap space-x-4 justify-center mt-12'>
         {['/2d-1.jpeg', '/2d-art-4.png', '/2d-art-5.jpg'].map((src, index) => (
-          <motion.div
+          <div
             key={index}
             className='flex flex-col items-center mx-2 mb-4 sm:mb-6'
             initial="hidden"
@@ -89,7 +89,7 @@ const page = () => {
                 className='w-full h-80 md:hover:h-96 duration-300 rounded-lg shadow-customGreen-light shadow-lg'
               />
             </Link>
-          </motion.div>
+          </div>
         ))}
       </div>
 
