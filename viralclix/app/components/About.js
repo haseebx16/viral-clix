@@ -24,9 +24,9 @@ const About = () => {
         animate={inView ? "visible" : "hidden"}
         variants={variants}
         transition={{ duration: 0.5 }}
-        className='flex-col flex justify-center items-center sm:items-center sm:ml-12'
+        className='flex-col flex justify-center items-center  sm:items-center sm:ml-12'
       >
-      <div className={`${font.className} text-green-400  text-4xl sm:text-6xl mt-12 relative`}>
+      <div className={`${font.className} text-green-400  text-4xl sm:text-6xl mt-36 relative`}>
         Your One Stop{' '}
         <p className='text-yellow-300 sm:text-6xl text-4xl'>
           Artist's Web
