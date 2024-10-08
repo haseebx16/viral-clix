@@ -46,13 +46,8 @@ const Portfolio = () => {
     visible: { opacity: 1, x: 0, scale: 1.05 }, // End position in view
   };
 
-  const imageVariants2 = {
-    hidden: { opacity: 0, x: 50 }, // Start position off-screen to the left
-    visible: { opacity: 1, x: 0, scale: 1.05 }, // End position in view
-  };
-
   return (
-    <div id="portfolio" className={`${font2.className} min-h-screen pt-12 bg-darkGrey`}>
+    <div id="portfolio" className={`${font2.className} min-h-screen pt-12 md:pt-24 bg-darkGrey`}>
       <div className='flex-col flex justify-center items-center p-12'>
         <p className={`${font.className} text-5xl sm:text-6xl text-center sm:text-left sm:ml-12 text-green-300`}>
           Portfolio
@@ -129,7 +124,7 @@ const Portfolio = () => {
             className='flex flex-col items-center mx-2 mb-4 sm:mb-6'
             initial="hidden"
             animate={isVisible3D ? "visible" : "hidden"}
-            variants={imageVariants2}
+            variants={imageVariants}
             transition={{ duration: 0.8, ease: "easeInOut" }} // Longer duration for the animation
           >
             <Link href="/services/3d">
@@ -150,7 +145,7 @@ const Portfolio = () => {
             className='flex flex-col justify-center sm:flex sm:flex-row sm:space-x-6 sm:space-y-0 items-center space-y-6 rounded-md mt-12'
             initial="hidden"
             animate={isVisible3D ? "visible" : "hidden"}
-            variants={imageVariants2}
+            variants={imageVariants}
             transition={{ duration: 0.8, ease: "easeInOut" }} // Longer duration for the animation
           >
             <Link href="/services/3d">
@@ -210,7 +205,7 @@ const Portfolio = () => {
           className='flex flex-col items-center mx-2 mb-4 sm:mb-6'
           initial="hidden"
           animate={isVisibleBanners ? "visible" : "hidden"}
-          variants={imageVariants2}
+          variants={imageVariants}
           transition={{ duration: 0.8, ease: "easeInOut" }} // Longer duration for the animation
         >
           <Link href="/services/banners">

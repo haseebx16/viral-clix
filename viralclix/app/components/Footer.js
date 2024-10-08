@@ -17,9 +17,9 @@ const Footer = () => {
           </p>
           
           <div className="flex justify-center sm:justify-start space-x-4 mt-4">
-            <FaFacebook className="text-green-400 text-2xl" />
-            <AiFillInstagram className="text-green-400 text-2xl" />
-            <FaTwitter className="text-green-400 text-2xl" />
+            <FaFacebook className="text-green-400 hover:text-green-600 duration-300 text-2xl" />
+            <AiFillInstagram className="text-green-400 hover:text-green-600 duration-300 text-2xl" />
+            <FaTwitter className="text-green-400 hover:text-green-600 duration-300 text-2xl" />
           </div>
         </div>
 

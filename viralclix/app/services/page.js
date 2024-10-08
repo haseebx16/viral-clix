@@ -48,10 +48,6 @@ const page = () => {
     visible: { opacity: 1, x: 0, scale: 1.05 }, // End position in view
   };
 
-  const imageVariants2 = {
-    hidden: { opacity: 0, x: 50 }, // Start position off-screen to the left
-    visible: { opacity: 1, x: 0, scale: 1.05 }, // End position in view
-  };
 
   return (
     <>
@@ -133,7 +129,7 @@ const page = () => {
             className='flex flex-col items-center mx-2 mb-4 sm:mb-6'
             initial="hidden"
             animate={isVisible3D ? "visible" : "hidden"}
-            variants={imageVariants2}
+            variants={imageVariants}
             transition={{ duration: 0.8, ease: "easeInOut" }} // Longer duration for the animation
           >
             <Link href="/services/3d">
@@ -154,7 +150,7 @@ const page = () => {
             className='flex flex-col justify-center sm:flex sm:flex-row sm:space-x-6 sm:space-y-0 items-center space-y-6 rounded-md mt-12'
             initial="hidden"
             animate={isVisible3D ? "visible" : "hidden"}
-            variants={imageVariants2}
+            variants={imageVariants}
             transition={{ duration: 0.8, ease: "easeInOut" }} // Longer duration for the animation
           >
             <Link href="/services/3d">
@@ -214,7 +210,7 @@ const page = () => {
           className='flex flex-col items-center mx-2 mb-4 sm:mb-6'
           initial="hidden"
           animate={isVisibleBanners ? "visible" : "hidden"}
-          variants={imageVariants2}
+          variants={imageVariants}
           transition={{ duration: 0.8, ease: "easeInOut" }} // Longer duration for the animation
         >
           <Link href="/services/banners">

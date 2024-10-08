@@ -122,8 +122,26 @@ const Hero = () => {
           </Link>
         </motion.div>
 
-        <hr className="my-8 border-t-4 p-0.5 border-gray-400 w-full shadow-lg shadow-customGreen-light" />
+        <hr className="my-4 border-t-4 p-0.5 border-gray-400 w-full shadow-lg shadow-customGreen-light" />
       </div>
+
+      {/* Sliding Text Section */}
+      <motion.div className='bg-customGreen-dark w-full rounded-2xl py-12 overflow-hidden'>
+        <motion.div
+          initial={{ x: '100vw' }} // Start off-screen on the right
+          animate={{
+            x: ['100vw', '0vw', '-100vw'], // Slide from right to left and exit to left
+          }}
+          transition={{
+            duration: 10, // Duration for the full animation cycle
+            ease: 'linear', // Constant speed
+            loop: Infinity, // Repeat indefinitely
+          }}
+          className='text-white text-3xl whitespace-nowrap' // Add whitespace-nowrap to prevent line breaks
+        >
+          asojhasdohasdoh
+        </motion.div>
+      </motion.div>
     </div>
   );
 };
