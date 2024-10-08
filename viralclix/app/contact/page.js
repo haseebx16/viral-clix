@@ -11,7 +11,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 const ContactPage = () => {
   return (
     <>
-    <div className={`min-h-screen p-12 bg-darkGrey`}>
+    <div className={`min-h-screen pt-36 bg-darkGrey`}>
       <Nav />
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row">
         {/* Left Section: Logo and Contact Details */}

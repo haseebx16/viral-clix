@@ -4,6 +4,7 @@
 
 .body {
     background-image: url("/bg-gif.gif");
+    overflow-x: hidden;
 }
 
 .two-d-gradient {

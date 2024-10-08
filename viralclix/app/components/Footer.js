@@ -43,7 +43,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="mt-8 text-center text-sm text-gray-400">
+      <div className="mt-8 text-center text-sm bg-black p-2 text-gray-400">
         © 2024. All rights reserved.
       </div>
     </div>
