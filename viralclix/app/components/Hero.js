@@ -138,9 +138,9 @@ const Hero = () => {
               repeat: Infinity, // Repeat indefinitely
               repeatType: 'loop', // Specify that it should loop
             }}
-            className='text-white text-5xl font-bold whitespace-nowrap'
+            className='text-white text-5xl font-extrabold whitespace-nowrap'
           >
-            We Are A Professional Firm
+            Need The Best Art Works? Contact Us
           </motion.div>
         </motion.div>
     </div>
