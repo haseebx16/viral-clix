@@ -126,22 +126,23 @@ const Hero = () => {
       </div>
 
       {/* Sliding Text Section */}
-      <motion.div className='bg-customGreen-dark w-full rounded-2xl py-12 overflow-hidden'>
-        <motion.div
-          initial={{ x: '100vw' }} // Start off-screen on the right
-          animate={{
-            x: ['100vw', '0vw', '-100vw'], // Slide from right to left and exit to left
-          }}
-          transition={{
-            duration: 10, // Duration for the full animation cycle
-            ease: 'linear', // Constant speed
-            loop: Infinity, // Repeat indefinitely
-          }}
-          className='text-white text-3xl whitespace-nowrap' // Add whitespace-nowrap to prevent line breaks
-        >
-          asojhasdohasdoh
+      <motion.div className='gradient-bg w-full rounded-2xl py-12 overflow-hidden'>
+          <motion.div
+            initial={{ x: '100vw' }} // Start off-screen on the right
+            animate={{
+              x: ['100vw', '0vw', '-100vw'], // Slide from right to left and exit to left
+            }}
+            transition={{
+              duration: 10, // Adjust this value for speed
+              ease: 'linear', // Use linear easing for constant speed
+              repeat: Infinity, // Repeat indefinitely
+              repeatType: 'loop', // Specify that it should loop
+            }}
+            className='text-white text-5xl font-bold whitespace-nowrap'
+          >
+            We Are A Professional Firm
+          </motion.div>
         </motion.div>
-      </motion.div>
     </div>
   );
 };
