@@ -42,9 +42,9 @@ const ContactPage = () => {
           </div>
         </div>
 
-        <div className="max-w-5xl mx-auto pb-24 flex flex-col pt-24 bg-darkGrey  md:flex-row">
+        <div className="max-w-5xl mx-auto pb-24 flex flex-col pt-24  md:flex-row">
           {/* Left Section: Logo and Contact Details */}
-          <div className="flex-1 p-8 rounded-lg shadow-green-100 shadow-xl flex flex-col justify-center items-center">
+          <div className="flex-1 p-8 rounded-lg shadow-green-100 bg-darkGrey shadow-xl flex flex-col justify-center items-center">
             <h1 className={`${font.className} text-3xl font-bold mb-6 text-customGreen-light text-center`}>
               Contact Us <span className='text-white'>For Your Custom Artwork</span>
             </h1>

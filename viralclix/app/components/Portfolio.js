@@ -67,7 +67,17 @@ const Portfolio = () => {
   };
 
   return (
-    <div id="portfolio" className={`${font2.className} min-h-screen pt-12 md:pt-24 bg-darkGrey`}>
+    <div
+      id="portfolio"
+      className={`${font2.className} min-h-screen pt-12 md:pt-24 bg-darkGrey`}
+      style={{
+        backgroundImage: `url('/portfolio-bg.png')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0.7)', // Black overlay with 70% transparency
+        backdropFilter: 'blur(5px)', // Optional: Adds a subtle blur effect
+      }}
+    >
       {/* Modal for fullscreen image */}
       {isModalOpen && (
         <div
@@ -105,22 +115,43 @@ const Portfolio = () => {
       </div>
 
       {/* 2D Art Images */}
-      <div className='flex flex-wrap justify-center mt-12 space-x-4'>
+      <div className='flex flex-wrap justify-center mt-12 gap-4'>
         {['/2d-1.jpeg', '/2d-art-4.png', '/2d-art-5.jpg'].map((src, index) => (
-          <div
-          key={index}
-          className='flex flex-col items-center mx-2 mb-4 sm:mb-6'
-          initial={{ opacity: 0, x: -50 }} // Adjust initial styles for layout
-          animate={isVisible2D ? { opacity: 1, x: 0, scale: 1.05 } : { opacity: 0, x: -50 }} // Handle visibility
-          transition={{ duration: 0.8, ease: "easeInOut" }} 
-          onClick={() => handleImageClick(src)} // Open modal on image click
-        >
-          <img
-            src={src}
-            className='w-full h-80 md:hover:h-96 duration-300 rounded-lg shadow-customGreen-light shadow-lg cursor-pointer'
-            alt="2D Art"
-          />
-        </div>
+          <motion.div
+            key={index}
+            className='flex flex-col items-center mx-2 mb-4 sm:mb-6'
+            initial="hidden"
+            animate={isVisible2D ? "visible" : "hidden"}
+            variants={imageVariants}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            onClick={() => handleImageClick(src)} // Open modal on image click
+          >
+            <img
+              src={src}
+              className='w-full h-80 md:hover:h-96 duration-300 rounded-lg shadow-customGreen-light shadow-lg cursor-pointer'
+              alt="2D Art"
+            />
+          </motion.div>
+        ))}
+      </div>
+
+      <div className='flex flex-wrap justify-center mt-12 gap-4 '>
+        {['/dragon-2d.png'].map((src, index) => (
+          <motion.div
+            key={index}
+            className='flex flex-col items-center mx-2 mb-4 sm:mb-6'
+            initial="hidden"
+            animate={isVisible2D ? "visible" : "hidden"}
+            variants={imageVariants}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            onClick={() => handleImageClick(src)} // Open modal on image click
+          >
+            <img
+              src={src}
+              className='w-full h-80 md:hover:h-96 duration-300 rounded-lg shadow-customGreen-light shadow-lg cursor-pointer'
+              alt="2D Art"
+            />
+          </motion.div>
         ))}
       </div>
 
@@ -135,7 +166,7 @@ const Portfolio = () => {
       </div>
 
       {/* 3D Art Images */}
-      <div className='flex flex-wrap justify-center mt-12 space-x-4'>
+      <div className='flex flex-wrap justify-center gap-4 mt-12'> 
         {['/3d-1.jpeg', '/3d-2.jpeg', '/3d-3.jpeg'].map((src, index) => (
           <motion.div
             key={index}
@@ -166,7 +197,7 @@ const Portfolio = () => {
       </div>
 
       {/* Overlay Images */}
-      <div className='flex flex-wrap justify-center mt-12 space-x-4'>
+      <div className='flex flex-wrap justify-center mt-12 gap-4 space-x-4'>
         {['/overlay-yellow.jpg', '/overlay.jpeg'].map((src, index) => (
           <motion.div
             key={index}
@@ -179,8 +210,8 @@ const Portfolio = () => {
           >
             <img
               src={src}
-              className='w-72 h-64 md:w-full md:h-80 md:hover:h-72 duration-300 rounded-lg shadow-customGreen-light shadow-lg cursor-pointer'
-              alt="Overlay Art"
+              className='w-full h-80 md:hover:h-96 duration-300 rounded-lg shadow-customGreen-light shadow-lg cursor-pointer'
+              alt="Overlay"
             />
           </motion.div>
         ))}
@@ -192,13 +223,13 @@ const Portfolio = () => {
           Banners
         </p>
         <div className='text-center text-white max-w-md sm:max-w-sm mx-auto'>
-          <p>A Diverse Collection of our exquisite Banners :3</p>
+          <p>A Diverse Collection of our exquisite banners :3</p>
         </div>
       </div>
 
       {/* Banner Images */}
-      <div className='flex flex-wrap justify-center mt-12 space-x-4'>
-        {['/banner-1.jpeg'].map((src, index) => (
+      <div className='flex flex-wrap justify-center gap-4 mt-12'>
+        {['/banner-1.jpeg', '/bannerr.jpg'].map((src, index) => (
           <motion.div
             key={index}
             className='flex flex-col items-center mx-2 mb-4 sm:mb-6'
@@ -210,8 +241,8 @@ const Portfolio = () => {
           >
             <img
               src={src}
-              className='w-full h-64 md:h-80 md:hover:h-96 duration-300 rounded-lg shadow-customGreen-light shadow-lg cursor-pointer'
-              alt="Banner Art"
+              className='md:w-[30rem] w-64 h-64 duration-300 rounded-lg shadow-customGreen-light shadow-lg cursor-pointer'
+              alt="Banner"
             />
           </motion.div>
         ))}

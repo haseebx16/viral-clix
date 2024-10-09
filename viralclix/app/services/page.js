@@ -1,230 +1,87 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion'; // Import motion from framer-motion
-import { font2 } from '../components/font/poppins';
+import React from 'react';
 import { font } from '../components/font/titan';
+import { motion } from 'framer-motion';
+import aboutCards from "../components/data/aboutCards.json"
 import Link from 'next/link';
-import Footer from '../components/Footer';
 import Nav from '../components/Nav';
+import Footer from '../components/Footer';
 
-const page = () => {
-  // State to track the visibility of each section
-  const [isVisible2D, setIsVisible2D] = useState(false);
-  const [isVisible3D, setIsVisible3D] = useState(false);
-  const [isVisibleOverlays, setIsVisibleOverlays] = useState(false);
-  const [isVisibleBanners, setIsVisibleBanners] = useState(false);
-
-  // Effect to check for scroll position for each section
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = [
-        { id: 'section-2d', setVisible: setIsVisible2D },
-        { id: 'section-3d', setVisible: setIsVisible3D },
-        { id: 'section-overlays', setVisible: setIsVisibleOverlays },
-        { id: 'section-banners', setVisible: setIsVisibleBanners },
-      ];
-
-      sections.forEach(({ id, setVisible }) => {
-        const section = document.getElementById(id);
-        const { top } = section.getBoundingClientRect();
-        if (top < window.innerHeight * 0.8) {
-          setVisible(true);
-        } else {
-          setVisible(false);
-        }
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  // Animation variants for pop-out and sliding effect
-  const imageVariants = {
-    hidden: { opacity: 0, x: -50 }, // Start position off-screen to the left
-    visible: { opacity: 1, x: 0, scale: 1.05 }, // End position in view
+const Services = () => {
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 1 } },
   };
 
+  const popUp = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+  };
 
   return (
     <>
     <Nav/>
-    <div id="portfolio" className={`${font2.className} min-h-screen pt-12 md:pt-24 bg-darkGrey`}>
-      <div className='flex-col flex justify-center items-center p-12'>
-        <p className={`${font.className} text-5xl sm:text-6xl text-center sm:text-left sm:ml-12 text-green-300`}>
+    <div className={`${font.className} bg-darkGrey pt-36 flex flex-col items-center`}>
+      {/* Scroll-triggered Animation for Title and Description */}
+      <motion.div
+        className="text-center mb-16 px-4 md:px-0"
+        initial="hidden"
+        whileInView="visible"
+        variants={fadeIn}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <motion.p className="text-4xl md:text-5xl lg:text-5xl font-extrabold text-green-300">
           Services
-        </p>
-        <div className='text-center text-white max-w-md sm:max-w-4xl mx-auto mt-4'>
-          <p>Explore our range of custom artwork services including Furry Art, Anime Art, Custom OC's & Much More!</p>
-        </div>
-      </div>
-
-      {/* 2D Art Section */}
-      <div id="section-2d" className='flex-col flex justify-center items-center'>
-        <p className={`${font.className} text-5xl sm:text-6xl text-center sm:text-left text-green-300`}>
-          2D<span className='text-white'>&nbsp;Art</span>
-        </p>
-        <div className='text-center text-white max-w-md sm:max-w-sm mx-auto'>
-          <p>A Diverse Collection of our exquisite 2D Art :3</p>
-        </div>
-      </div>
-
-      {/* 2D Art Images */}
-      <div className='flex flex-wrap space-x-4 justify-center mt-12'>
-        {['/2d-1.jpeg', '/2d-art-4.png', '/2d-art-5.jpg'].map((src, index) => (
-          <div
-            key={index}
-            className='flex flex-col items-center mx-2 mb-4 sm:mb-6'
-            initial="hidden"
-            animate={isVisible2D ? "visible" : "hidden"}
-            variants={imageVariants}
-            transition={{ duration: 0.8, ease: "easeInOut" }} // Longer duration for the animation
-          >
-            <Link href="/services/2d">
-              <img
-                src={src}
-                className='w-full h-80 md:hover:h-96 duration-300 rounded-lg shadow-customGreen-light shadow-lg'
-              />
-            </Link>
-          </div>
-        ))}
-      </div>
-
-      {/* Additional 2D Art Item */}
-      <div className='flex flex-col justify-center sm:flex sm:flex-row sm:space-x-6 sm:space-y-0 items-center space-y-6 rounded-md mt-12'>
-        <motion.div
-          className='flex flex-col justify-center'
-          initial="hidden"
-          animate={isVisible2D ? "visible" : "hidden"}
-          variants={imageVariants}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
+        </motion.p>
+        <motion.p
+          className="font-light mt-6 text-white max-w-3xl mx-auto"
+          variants={fadeIn}
         >
-          <Link href="/services/2d">
-            <img
-              src='/dragon-2d.png'
-              className='md:w-auto w-80 h-80 md:hover:h-96 duration-300 shadow-customGreen-light shadow-lg rounded-lg mb-12'
-            />
+          We excel in providing customized solutions in all fields of GFX, VFX & Development and digital transformation, carefully crafted to meet the distinct challenges of each client. By embracing continuous innovation and staying ahead of technological trends, we ensure our services are both highly efficient and flexible, adapting seamlessly to the ever-changing demands of the market.
+        </motion.p>
+      </motion.div>
+
+      {/* Scroll-triggered Animation for Service Cards */}
+      <motion.div
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 px-4 md:px-8"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={fadeIn}
+      >
+        {aboutCards.map((service) => (
+          <Link href={service.href} key={service.id}>
+            <motion.div
+              className="relative group rounded-lg overflow-hidden shadow-2xl shadow-customGreen-light"
+              initial="hidden"
+              whileInView="visible"
+              variants={popUp} // Change this to the popUp variant
+              viewport={{ once: true, amount: 0.2 }}
+            >
+              <motion.img
+                src={service.src}
+                alt={service.label}
+                className="w-full h-64 md:h-64 lg:h-64 object-cover"
+              />
+              <motion.div className="absolute inset-0 bg-black bg-opacity-80 group-hover:bg-opacity-30 transition-opacity duration-300" />
+              <motion.div
+                className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                initial={{ opacity: 1, y: 10 }}
+                whileHover={{ opacity: 1, y: 0 }}
+              >
+                <p className="text-white text-2xl md:text-2xl lg:text-2xl font-light text-center p-4">
+                  {service.label}
+                </p>
+              </motion.div>
+            </motion.div>
           </Link>
-        </motion.div>
-      </div>
-
-      {/* 3D Art Section */}
-      <div id="section-3d" className='flex-col flex justify-center items-center mt-12'>
-        <p className={`${font.className} text-5xl sm:text-6xl text-center sm:text-left text-green-300`}>
-          3D<span className='text-white'>&nbsp;Art</span>
-        </p>
-        <div className='text-center text-white max-w-md sm:max-w-sm mx-auto'>
-          <p>A Diverse Collection of our exquisite 3D Art :3</p>
-        </div>
-      </div>
-
-      {/* 3D Art Images */}
-      <div className='flex flex-wrap justify-center mt-12'>
-        {['/3d-1.jpeg', '/3d-2.jpeg', '/3d-3.jpeg'].map((src, index) => (
-          <motion.div
-            key={index}
-            className='flex flex-col items-center mx-2 mb-4 sm:mb-6'
-            initial="hidden"
-            animate={isVisible3D ? "visible" : "hidden"}
-            variants={imageVariants}
-            transition={{ duration: 0.8, ease: "easeInOut" }} // Longer duration for the animation
-          >
-            <Link href="/services/3d">
-              <img
-                src={src}
-                className='md:w-full w-64 h-80 md:hover:h-96 duration-300 rounded-lg shadow-customGreen-light shadow-lg'
-              />
-            </Link>
-          </motion.div>
         ))}
-      </div>
-
-      {/* Additional 3D Art Items */}
-      <div className='flex flex-wrap justify-center mt-6 space-x-6'>
-        {['/3d-5.png', '/3d-6.png'].map((src, index) => (
-          <motion.div
-            key={index}
-            className='flex flex-col justify-center sm:flex sm:flex-row sm:space-x-6 sm:space-y-0 items-center space-y-6 rounded-md mt-12'
-            initial="hidden"
-            animate={isVisible3D ? "visible" : "hidden"}
-            variants={imageVariants}
-            transition={{ duration: 0.8, ease: "easeInOut" }} // Longer duration for the animation
-          >
-            <Link href="/services/3d">
-              <img
-                src={src}
-                className='md:w-auto w-64 h-80 md:hover:h-96 bg-black duration-300 shadow-customGreen-light shadow-lg rounded-lg mb-12'
-              />
-            </Link>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Overlays Section */}
-      <div id="section-overlays" className='flex-col flex justify-center items-center mt-12'>
-        <p className={`${font.className} text-5xl sm:text-6xl text-center sm:text-left text-green-300`}>
-          Overlays
-        </p>
-        <div className='text-center text-white max-w-md sm:max-w-sm mx-auto'>
-          <p>A Diverse Collection of our exquisite overlays :3</p>
-        </div>
-      </div>
-
-      {/* Overlay Images */}
-      <div className='flex flex-wrap justify-center mt-12 sm:space-y-6 md:space-y-0'>
-        {['/overlay-yellow.jpg', '/overlay.jpeg'].map((src, index) => (
-          <motion.div
-            key={index}
-            className='flex flex-col items-center mx-2 mb-4 sm:mb-6'
-            initial="hidden"
-            animate={isVisibleOverlays ? "visible" : "hidden"}
-            variants={imageVariants}
-            transition={{ duration: 0.8, ease: "easeInOut" }} // Longer duration for the animation
-          >
-            <Link href="/services/overlays">
-              <img
-                src={src}
-                className='w-72 h-64 md:w-full md:h-80 md:hover:h-72 duration-300 rounded-lg shadow-customGreen-light shadow-lg'
-              />
-            </Link>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Banners Section */}
-      <div id="section-banners" className='flex-col flex justify-center items-center mt-12'>
-        <p className={`${font.className} text-5xl sm:text-6xl text-center sm:text-left text-green-300`}>
-          Banners
-        </p>
-        <div className='text-center text-white max-w-md sm:max-w-sm mx-auto'>
-          <p>A Diverse Collection of our exquisite Banners :3</p>
-        </div>
-      </div>
-
-      {/* Banner Images */}
-      <div className='flex flex-wrap justify-center mt-12 sm:space-y-6 md:space-y-0'>
-        <motion.div
-          className='flex flex-col items-center mx-2 mb-4 sm:mb-6'
-          initial="hidden"
-          animate={isVisibleBanners ? "visible" : "hidden"}
-          variants={imageVariants}
-          transition={{ duration: 0.8, ease: "easeInOut" }} // Longer duration for the animation
-        >
-          <Link href="/services/banners">
-            <img
-              src='/banner-1.jpeg'
-              className='md:w-full md:h-80 w-72 h-54 md:hover:h-72 duration-300 rounded-lg shadow-customGreen-light shadow-lg'
-            />
-          </Link>
-        </motion.div>
-      </div>
-      <Footer/>
+      </motion.div>
     </div>
+    <Footer/>
     </>
   );
-}
+};
 
-export default page;
+export default Services;
