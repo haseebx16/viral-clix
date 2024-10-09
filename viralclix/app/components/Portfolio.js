@@ -107,7 +107,7 @@ const Portfolio = () => {
       {/* 2D Art Images */}
       <div className='flex flex-wrap justify-center mt-12 space-x-4'>
         {['/2d-1.jpeg', '/2d-art-4.png', '/2d-art-5.jpg'].map((src, index) => (
-          <motion.div
+          <div
           key={index}
           className='flex flex-col items-center mx-2 mb-4 sm:mb-6'
           initial={{ opacity: 0, x: -50 }} // Adjust initial styles for layout
@@ -120,7 +120,7 @@ const Portfolio = () => {
             className='w-full h-80 md:hover:h-96 duration-300 rounded-lg shadow-customGreen-light shadow-lg cursor-pointer'
             alt="2D Art"
           />
-        </motion.div>
+        </div>
         ))}
       </div>
 

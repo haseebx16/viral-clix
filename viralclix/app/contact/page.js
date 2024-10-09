@@ -13,7 +13,7 @@ import Link from 'next/link';
 const ContactPage = () => {
   return (
     <>
-      <div className={`min-h-screen bg-darkGrey overflow-x-hidden`}> {/* Add overflow-x-hidden here */}
+      <div className={`min-h-screen two-d-gradient overflow-x-hidden`}> {/* Add overflow-x-hidden here */}
         <Nav />
         <div className="min-h-[23rem] md:min-h-[25rem] bg-darkGrey">
           <div className='flex justify-center items-center flex-col w-full'>
@@ -42,9 +42,9 @@ const ContactPage = () => {
           </div>
         </div>
 
-        <div className="max-w-5xl mx-auto pb-24 flex flex-col md:flex-row">
+        <div className="max-w-5xl mx-auto pb-24 flex flex-col pt-24 bg-darkGrey  md:flex-row">
           {/* Left Section: Logo and Contact Details */}
-          <div className="flex-1 two-d-gradient p-8 rounded-lg shadow-lg flex flex-col justify-center items-center">
+          <div className="flex-1 p-8 rounded-lg shadow-green-100 shadow-xl flex flex-col justify-center items-center">
             <h1 className={`${font.className} text-3xl font-bold mb-6 text-customGreen-light text-center`}>
               Contact Us <span className='text-white'>For Your Custom Artwork</span>
             </h1>
@@ -59,7 +59,7 @@ const ContactPage = () => {
 
           {/* Right Section: Contact Form */}
           <motion.div
-            className={`${font2.className} flex-1 bg-darkGrey p-8 rounded-lg shadow-lg`}
+            className={`${font2.className} flex-1 bg-darkGrey shadow-green-100 shadow-xl p-8 rounded-lg shadow-lg`}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
