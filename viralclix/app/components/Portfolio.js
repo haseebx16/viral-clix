@@ -210,7 +210,7 @@ const Portfolio = () => {
           >
             <img
               src={src}
-              className='w-full h-80 md:hover:h-96 duration-300 rounded-lg shadow-customGreen-light shadow-lg cursor-pointer'
+              className='w-full h-72 md:hover:h-80 duration-300 rounded-lg shadow-customGreen-light shadow-lg cursor-pointer'
               alt="Overlay"
             />
           </motion.div>
